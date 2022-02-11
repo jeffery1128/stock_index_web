@@ -24,8 +24,10 @@ class scrapper:
             dji_change = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[3]/td[4]')
             dji_change_percent = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[3]/td[3]')
             self.dji = {'dji' : dji_index.text, 'dji_change' : dji_change.text, 'dji_percent' : dji_change_percent.text}
+            return 0
         except:
             print("dji is not successfully scrapped")
+            return 1
 
     def get_hsi(self):
         try:
@@ -33,9 +35,11 @@ class scrapper:
             hsi_index = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[13]/td[2]/span')
             hsi_change = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[13]/td[4]')
             hsi_change_percent = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[13]/td[3]')
-            self.hsi = {'hsi' : hsi_index.text, 'hsi_change' : hsi_change.text, 'hsi_percent' : hsi_change_percent.text}     
+            self.hsi = {'hsi' : hsi_index.text, 'hsi_change' : hsi_change.text, 'hsi_percent' : hsi_change_percent.text}  
+            return 0   
         except:
-            print("hsi is not successfully scrapped")   
+            print("hsi is not successfully scrapped")
+            return 1   
 
     def get_gold(self):
             try:
@@ -45,8 +49,10 @@ class scrapper:
                 gold_change = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[1]/td[4]')
                 gold_change_percent = self.driver.find_element_by_xpath('/html/body/div[2]/div[4]/div[2]/div/div/div[2]/div[2]/div[4]/table/tbody/tr[1]/td[3]')
                 self.gold = {'gold' : gold_index.text, 'gold_change' : gold_change.text, 'gold_percent' : gold_change_percent.text}
+                return 0
             except:
                 print("gold is not successfully scrapped") 
+                return 1
 
     def close(self):
         self.driver.close()
